@@ -17,7 +17,7 @@ const updateNote = async (req:Request, res:Response) => {
         res.json({message: "Note updated"});
     } catch(err) {
         console.log(err);
-        res.json({message: "Item could not be found"});
+        res.json({error: "Item could not be found"});
     }
 
 }

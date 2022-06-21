@@ -13,7 +13,7 @@ const getNote = async (req:Request, res:Response) => {
         });
         res.json(note);
     } catch(err) {
-        res.json({message: "Resource not found"});
+        res.json({error: "Resource not found"});
     }
 
 }

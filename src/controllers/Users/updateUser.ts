@@ -16,7 +16,7 @@ const updateUser = async (req: Request, res: Response) => {
 
     } catch(err) {
         console.log(err);
-        res.json({message: "Failed to update User."});
+        res.json({error: "Failed to update User."});
     }
 }
 export default updateUser;

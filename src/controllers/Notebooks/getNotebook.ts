@@ -15,7 +15,7 @@ const getNotebook = async (req: Request, res: Response) => {
         res.json(notebooks);
     }
     catch(err){
-        res.json({message: "Source could not be found"});
+        res.json({error: "Source could not be found"});
     }
 
         

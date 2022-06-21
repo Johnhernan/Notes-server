@@ -9,7 +9,7 @@ const postNote = async (req:Request, res:Response) => {
     const {title, content, notebookID } = note;
 
     if( !UID || !notebookID || !title || !content) {
-        res.json({message: "Failed to post note"});
+        res.json({error: "Failed to post note"});
         return;
     }
     const newNote: INotes = {
@@ -27,7 +27,7 @@ const postNote = async (req:Request, res:Response) => {
 
         res.json({message: "Note posted"});
     } catch(err) {
-        res.json({message: "Server Error, failed to post"})
+        res.json({error: "Server Error, failed to post"})
     }
 
 }

@@ -18,7 +18,7 @@ const deleteNotebook = async (req: Request, res: Response) => {
     }
     catch(err) {
         console.log("here")
-        res.json({message: "Item not found"});
+        res.json({error: "Item not found"});
     }
 
 }

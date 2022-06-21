@@ -11,7 +11,7 @@ const getNotes = async (req:Request, res:Response) => {
             ( {note, notebookID, title, content }));
         res.json(notes);
     } catch(err) {
-        res.json({message: "Resource not found"});
+        res.json({error: "Resource not found"});
     }
 
 }

@@ -1,17 +1,25 @@
 import {Response, Request} from 'express';
 import UserModel from '../../models/User.model';
+import bcrypt from 'bcrypt';
 
 const getUser = async (req: Request, res: Response) => {
     const { email, password } = req.query;
 
     if(!email || !password) {
-        res.json({message: "Bad Request"});
+        res.json({error: "Bad Request"});
         return;
     }
-    const user = await UserModel.findOne( {"user.email": email, "user.password": password}).clone();
-    if(user) 
-        res.json(user);
-    else 
-        res.status(400).json({message: "user not found"});
+    try {
+        const user = await UserModel.findOne( {"user.email": email}).clone();
+        const passwordCorrect = await bcrypt.compare(password as string, user?.user.password as string);
+        console.log(passwordCorrect)
+        if(passwordCorrect)
+            res.json(user);
+        else 
+            res.status(400).json({error: "user not found"});
+    } catch (err) {
+        res.status(400).json({error: "user not found"});
+    }
 }
+
 export default getUser;

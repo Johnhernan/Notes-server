@@ -7,7 +7,7 @@ const postNotebook = async (req: Request, res: Response) => {
     const { UID, notebook } = req.body;
     const {title, description } = notebook;
     if(!title || !description || !UID) {
-        res.status(400).json({message: "Failed to post notebook"});
+        res.status(400);
         return;
     }
     const newNotebook: INotebook = {
@@ -26,7 +26,7 @@ const postNotebook = async (req: Request, res: Response) => {
         res.json({message: "Item sucessfully saved"});
         
     } catch(err) {
-        res.json({message: "Failed User not found"});
+        res.json({error: "Failed User not found"});
     }    
 }
 

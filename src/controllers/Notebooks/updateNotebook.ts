@@ -4,7 +4,7 @@ import UserModel from "../../models/User.model";
 const updateNotebook = async (req: Request, res: Response) => {
     const { UID, id, args} = req.body;
     if(!UID || !id || !args) {
-        res.json({message: "Bad Request"});
+        res.status(400);
         return;
     }
     try {
@@ -22,7 +22,7 @@ const updateNotebook = async (req: Request, res: Response) => {
     }
     catch (err) {
         console.log(err);
-        res.json({message: "Item could not be found"});
+        res.json({error: "Item could not be found"});
     }
 }
 

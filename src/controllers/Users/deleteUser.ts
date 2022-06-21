@@ -5,7 +5,7 @@ const deleteUser = async (req: Request, res: Response) => {
     const { UID } = req.body;
 
     if(!UID){ 
-        res.json({message: "Bad request"});
+        res.json({error: "Bad request"});
         return;
     }
     try {
@@ -14,7 +14,7 @@ const deleteUser = async (req: Request, res: Response) => {
     }
     catch(err) {
         console.log(err);
-        res.json({message: "Failed to delete User."});
+        res.json({error: "Failed to delete User."});
     }
 }
 export default deleteUser;

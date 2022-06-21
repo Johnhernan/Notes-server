@@ -11,7 +11,7 @@ const deleteNote = async (req:Request, res:Response) => {
         res.json({message: "Item sucessfully deleted"});
     }
     catch(err) {
-        res.json({message: "Item not found"});
+        res.json({error: "Item not found"});
     }
 }
 export default deleteNote;
