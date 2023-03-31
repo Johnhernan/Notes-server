@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import UserModel from "../../models/User.model";
+import UserModel from "../../../utilities/models/mongoose/User.model";
 
 // Delete Requests
 const deleteNotebook = async (req: Request, res: Response) => {

@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import UserModel from "../../models/User.model";
+import UserModel from "../../../utilities/models/mongoose/User.model";
 
 const updateNotebook = async (req: Request, res: Response) => {
     const { UID, id, args} = req.body;

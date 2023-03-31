@@ -1,0 +1,9 @@
+{
+  "watch": ["src/", "server.js"],
+  "ext": "js, ts",
+  "delay": 7000,
+  "events": {
+    "restart": "npm run build-project",
+    "start": "npm run build-project"
+  }
+}

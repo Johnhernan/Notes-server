@@ -1,7 +1,7 @@
 import {Request, Response} from "express";
-import INotebook from '../../utilities/INotebook';
+import INotebook from '../../../utilities/models/Interfaces/INotebook';
 import {v4 as uuid} from 'uuid';
-import UserModel from "../../models/User.model";
+import UserModel from "../../../utilities/models/mongoose/User.model";
 
 const postNotebook = async (req: Request, res: Response) => {
     const { UID, notebook } = req.body;

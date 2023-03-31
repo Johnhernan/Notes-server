@@ -1,5 +1,5 @@
 import {Schema, model} from 'mongoose';
-import IUser from '../utilities/IUser';
+import IUser from '../Interfaces/IUser';
 
 const notebookSchema = new Schema({
     notebook: {type: String, required: true},

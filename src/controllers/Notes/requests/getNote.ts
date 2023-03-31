@@ -1,5 +1,5 @@
 import {Response, Request} from "express";
-import UserModel from "../../models/User.model";
+import UserModel from "../../../utilities/models/mongoose/User.model";
 
 // --------- Get Requests ---------
 const getNote = async (req:Request, res:Response) => {

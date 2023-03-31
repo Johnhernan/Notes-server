@@ -1,9 +1,9 @@
 import {Request, Response} from "express";
-import getNotebook from "./getNotebook";
-import deleteNotebook from "./deleteNotebook";
-import updateNotebook from "./updateNotebook";
-import getNotebooks from "./getNotebooks";
-import postNotebook from "./postNotebook";
+import getNotebook from "./requests/getNotebook";
+import deleteNotebook from "./requests/deleteNotebook";
+import updateNotebook from "./requests/updateNotebook";
+import getNotebooks from "./requests/getNotebooks";
+import postNotebook from "./requests/postNotebook";
 
 
 const getNotes = async (req:Request, res:Response) => {

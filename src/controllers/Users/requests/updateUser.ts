@@ -1,5 +1,5 @@
 import {Response, Request} from 'express';
-import UserModel from '../../models/User.model';
+import UserModel from '../../../utilities/models/mongoose/User.model';
 
 
 const updateUser = async (req: Request, res: Response) => {
@@ -11,12 +11,10 @@ const updateUser = async (req: Request, res: Response) => {
         args.password && (foundUser.user.password = args.password);
         
         await foundUser.save();
-        res.json({message: "User updated."});
+        res.status(200).json({message: "User updated."});
         
-
     } catch(err) {
-        console.log(err);
-        res.json({error: "Failed to update User."});
+        res.status(400).json({error: "Failed to update User."});
     }
 }
 export default updateUser;

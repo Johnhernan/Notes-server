@@ -1,7 +1,7 @@
 import {Response, Request} from "express";
 import {v4 as uuid} from "uuid";
-import UserModel from "../../models/User.model";
-import INotes from "../../utilities/INotes";
+import UserModel from "../../../utilities/models/mongoose/User.model";
+import INotes from "../../../utilities/models/Interfaces/INotes";
 
 // --------- Post Request ---------
 const postNote = async (req:Request, res:Response) => {
