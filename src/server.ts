@@ -4,6 +4,7 @@ import cors from 'cors';
 import userRouter from "./routes/user.routes";
 import notebookRouter from "./routes/notebooks.routes";
 import notesRouter from "./routes/notes.routes";
+import authRouter from "./routes/auth.routes";
 import 'dotenv/config';
 
 //Configurations
@@ -20,17 +21,22 @@ mongoose.connect(String(process.env.DATABASE_URI))
 
 
 // ----- Middleware -----
-// router.use('/api', (req: Request, res: Response, next: NextFunction) => {
-//     console.log('herasdjfaASDASasdfasdDFAD;sjdle')
-//     next();
-// });
+app.use((req: Request, res: Response, next: NextFunction) => {
+    if(req.url.includes('users')) {
+        res.status(403).json()
+        return;
+    }
+
+    next();
+});
 
 // ----- Routes -----
-app.use("/api/users", userRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/users", userRouter); // This is an admin route
 app.use("/api/notebooks", notebookRouter);
 app.use("/api/notes", notesRouter);
 
-console.log('here')
+
 // ----- Listener -----
 let port: number = 0;
 if (process.env.PORT) port = parseInt(process.env.PORT);
